@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,30 @@
     <title>Ola</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <style>
-    .pixelart{
-        image-rendering: pixelated;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: crisp-edges;
-    } 
+        .pixelart {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .project {
+            padding: 10vh;
+        }
     </style>
 </head>
+
 <body>
     <h1 class="container">
         Bisteca
     </h1>
-    <a href="https://MarkChase3.github.io/DownToTheCenter/index.html"><img class="container-fluid pixelart" src="https://MarkChase3.github.io/DownToTheCenter.png"></img></a>
+    <div class="row">
+        <a href="https://MarkChase3.github.io/DownToTheCenter/index.html">
+            <img class="project container-fluid pixelart" src="https://MarkChase3.github.io/DownToTheCenter.png">
+        </a>
+        <a href="https://MarkChase3.github.io/DownToTheCenter/index.html">
+            <img class="project container-fluid pixelart" src="https://MarkChase3.github.io/DownToTheCenter.png">
+        </a>
+    </div>
 </body>
+
 </html>
