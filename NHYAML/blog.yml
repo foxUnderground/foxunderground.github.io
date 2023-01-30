@@ -1,0 +1,11 @@
+center-text#NHYAML:
+    NHYAMML
+text#explain:
+    NHYAML is a markup language that uses yhe yaml syntax and can build web apps very easily, like this blog! More info on the github repo.
+center-fig-link#link:
+    src:
+        https://markchase3.github.io/NHYAML.png
+    text:
+        Image-link to the repo
+    link:
+        https://markchase3.github.io/blog.html
