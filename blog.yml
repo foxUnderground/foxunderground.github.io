@@ -1,0 +1,20 @@
+center-text#header:
+    Bisteca
+
+grid-5#header:
+    fig-link#DownToTheCenterFig:
+        src:
+           DownToTheCenter/DownToTheCenter.png
+        text:
+            A demo-game where you can explore dungeons in an old mine until the eart's center
+        link:
+            DownToTheCenter/post.html
+    fig-link#NHYAMLFig:
+        src:
+           YAML.png
+        text:
+            A yaml markup language that powers this blog!
+        link:
+            NHYAML/post.html
+center-text#footer:
+    "That's it! Go back here later to see more posts!"
