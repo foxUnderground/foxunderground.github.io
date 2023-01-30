@@ -8,7 +8,7 @@ text#whats:
 
 fig-link#play:
     src:
-        ../DowntoTheCenter.png
+        https://markchase3.github.io/DownToTheCenter.png
     text:
         Click on the image
     link:
