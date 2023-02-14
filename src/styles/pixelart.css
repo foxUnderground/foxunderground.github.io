@@ -1,0 +1,22 @@
+@font-face {
+  font-family: pixelart;
+  src: url(/Users/bitte/Documents/futack/client/assets/fonts/slkscr.ttf);
+}
+
+h1,h2,h3,h4,h5,h6,h7,p,summary,div {
+  font-family: pixelart;
+  font-weight: normal;
+}
+
+h1, div{
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+	font-size: 5rem
+}
+summary {
+	font-size: 2rem;
+}
+img {
+ 	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
