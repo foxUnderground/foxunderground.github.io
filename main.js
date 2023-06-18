@@ -26,22 +26,50 @@ let sellings = [
         name: 'Renan',
         muscularMass: 8
     },
+        {
+        type: 'fox',
+        price: 3,
+        weight: 'cool',
+        name: 'Ruby',
+        muscularMass: 8
+    },
+    {
+        type: 'fox',
+        price: 3,
+        weight: 'sumo',
+        name: 'Rute',
+        muscularMass: 8
+    },
+    {
+        type: 'fox',
+        price: 3,
+        weight: 'high',
+        name: 'Rulk',
+        muscularMass: 8
+    },
+
 ]
 let foxesLogo = new Image()
 foxesLogo.src = 'https://i.imgur.com/PTOzBZR.png'
 let foxesSources = {
     'light': 'https://i.imgur.com/3YAfzoQ.png',
     'normal': 'https://i.imgur.com/Yug781V.png',
-    'heavy': 'https://i.imgur.com/uagqKTA.png'
+    'heavy': 'https://i.imgur.com/uagqKTA.png',
+    'cool': 'https://i.imgur.com/4ZlxikG.png',
+    'sumo': 'https://i.imgur.com/PZMwS0N.png'
 }
 let teamSprites = {
     'light': new Image(),
     'normal': new Image(),
     'heavy': new Image(),
+    'cool': new Image(),
+    'sumo': new Image()
 }
 teamSprites.light.src = 'https://i.imgur.com/87iOqzJ.png'
 teamSprites.normal.src = 'https://i.imgur.com/SoYuuzQ.png'
 teamSprites.heavy.src = 'https://i.imgur.com/AknBwv1.png'
+teamSprites.cool.src = 'https://i.imgur.com/4ZlxikG.png'
+teamSprites.sumo.src = 'https://i.imgur.com/PZMwS0N.png'
 let arrowBack = new Image()
 arrowBack.src = 'https://i.imgur.com/rQVFE10.png'
 let arrowLeft = new Image()
@@ -101,12 +129,17 @@ class JudoFox {
 let speeds = {
     'heavy': 0.25,
     'normal': 0.5,
-    'light': 1
+    'light': 1,
+    'cool': 0.5,
+    'sumo': 0.20,
+    'cool': 0.5,
 }
 let recoils = {
     'heavy': 1,
     'normal': 0.5,
-    'light': 0.25
+    'light': 0.25,
+    'cool': 0.75,
+    'sumo': 0.75
 }
 function drawProgressBar(x, y, width, height, progress, text) {
     // Draw the background rectangle
@@ -146,6 +179,15 @@ function randomTeam() {
     return buf
 }
 let mx, my;
+canvas.onmousedown = (e) => {
+    // Get the mouse position relative to the canvas
+    let rect = canvas.getBoundingClientRect(),
+        scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for x
+            scaleY = canvas.height / rect.height;
+    mx = (e.clientX - rect.left) * scaleX;
+    my = (e.clientY - rect.top) * scaleY;
+    console.log(mx, my)
+}
 canvas.ontouchstart = (e) => {
     // Get the mouse position relative to the canvas
     let rect = canvas.getBoundingClientRect(),
@@ -710,13 +752,14 @@ function update() {
     } else if(menu == 'shop'){
         let x = canvas.width / 2 - (CARD_WIDTH * 3 + CARD_SPACING * 2) / 2
         ctx.font = '20px slkscr'
-        ctx.fillText('Every item here costs 5 gold. You have ' + localStorage.money, canvas.width / 2, canvas.height - 20)
-        sellings.forEach((e,i)=>{
+        ctx.fillText('Every item here costs 3 gold. You have ' + localStorage.money, canvas.width / 2, canvas.height - 15)
+        sellings.slice(0, 3).forEach((e,i)=>{
             if(e.type == 'fox'){
-                card(x, canvas.height / 2 - CARD_HEIGHT / 2, e.name, foxes[i].image, () => {
+                card(x, canvas.height / 2 - CARD_HEIGHT / 2, e.name, teamSprites[e.weight], () => {
                     if(localStorage.money >= 3){
                         localStorage.money -= 3
                         foxes.push(new JudoFox(e.weight, e.name, e.muscularMass, false, 0))
+                        sellings.splice(i,1)
                     }
                 })
             }
